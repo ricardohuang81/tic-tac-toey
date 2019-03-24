@@ -1,14 +1,315 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font: 30px "Comic Sans MS", "Century Gothic", Futura, sans-serif;
+  text-transform: uppercase;
+  margin: 20px;
+  background-color: turquoise;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+ul {
+  padding-left: 30px;
+  list-style-type: none;
+}
+
+button {
+  width: 190px;
+  height: 40px;
+  border: 1px solid;
+  border-radius: 10px;
+  font: 15px "Comic Sans MS", "Century Gothic", Futura, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #FFB6C1;
+  box-sizing: border-box;
+}
+
+button:hover {
+  cursor: grab;
+}
+
+button:active {
+  cursor: grabbing;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: -10px;
+  color: honeydew;
+  font-weight: bold;
+}
+
+.square {
+  background: #FFFF00;
+  border: 3px solid #FFC0CB;
+  border-radius: 20px;
+  float: left;
+  font-size: 100px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 190px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 190px;
+  box-sizing: border-box;
+}
+
+.square:hover {
+  cursor: grab;
+}
+
+.square:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 1060px) {
+  body {
+    font-size: 20px;
+  }
+  button {
+    width: 70px;
+    height: 20px;
+    border: 1px solid;
+    border-radius: 10px;
+    font: 8px "Comic Sans MS", "Century Gothic", Futura, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #FFB6C1;
+    box-sizing: border-box;
+  }
+  .square {
+    background: #FFFF00;
+    border: 2px solid #FFC0CB;
+    border-radius: 20px;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 20px;
+    height: 100px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 100px;
+    box-sizing: border-box;
+  }
+  ul {
+    font-size: 18px;
+  }
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd  ;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 50px;
+  margin-top: 160px;
+}
+
+@media (max-width: 1060px) {
+  body {
+    font-size: 20px;
+  }
+  button {
+    width: 70px;
+    height: 20px;
+    border: 1px solid;
+    border-radius: 10px;
+    font: 8px "Comic Sans MS", "Century Gothic", Futura, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #FFB6C1;
+    box-sizing: border-box;
+  }
+  .square {
+    background: #FFFF00;
+    border: 2px solid #FFC0CB;
+    border-radius: 20px;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 20px;
+    height: 100px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 100px;
+    box-sizing: border-box;
+  }
+  .status {
+    margin-bottom: -20px;
+  }
+  .game-info {
+    margin-top: 110px;
+  }
+  ul {
+    padding-left: 0;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 580px) {
+  body {
+    font-size: 14px;
+  }
+  .game-info {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    font-size: 8px;
+  }
+  ul {
+    font-size: 10px;
+    text-align: left;
+    padding: inherit;
+  }
+  button {
+    width: 40px;
+    height: 14px;
+    border: 1px solid;
+    border-radius: 10px;
+    font: 4px "Comic Sans MS", "Century Gothic", Futura, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #FFB6C1;
+    box-sizing: border-box;
+  }
+  .square {
+    background: #FFFF00;
+    border: 2px solid #FFC0CB;
+    border-radius: 20px;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    height: 50px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 50px;
+    box-sizing: border-box;
+  }
+  .game-info {
+    margin-left: -50%;
+    margin-top: 110%;
+  }
+}
+
+@media (max-width: 230px) {
+  body {
+    font-size: 6px;
+  }
+  .game-info {
+    margin-left: -75%;
+    margin-top: 150%;
+  }
+}
+
+@media (max-width: 170px) {
+  body {
+    font-size: 4px;
+  }
+  ul {
+    font-size: 4px;
+    text-align: left;
+    padding: inherit;
+    line-height: normal;
+  }
+  button {
+    width: 30px;
+    height: 8px;
+    border: 1px solid;
+    border-radius: 10px;
+    font: 2px "Comic Sans MS", "Century Gothic", Futura, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #FFB6C1;
+    box-sizing: border-box;
+  }
+  .square {
+    background: #FFFF00;
+    border: 1px solid #FFC0CB;
+    border-radius: 20px;
+    float: left;
+    font-size: 8px;
+    font-weight: bold;
+    line-height: 10px;
+    height: 25px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 25px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 150px) {
+  body {
+    font-size: 2px;
+  }
+  ul {
+    font-size: 2px;
+    text-align: left;
+    padding: inherit;
+    line-height: normal;
+  }
+  button {
+    width: 30px;
+    height: 8px;
+    border: 1px solid;
+    border-radius: 10px;
+    font: 2px "Comic Sans MS", "Century Gothic", Futura, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #FFB6C1;
+    box-sizing: border-box;
+  }
+  .square {
+    background: #FFFF00;
+    border: 1px solid #FFC0CB;
+    border-radius: 20px;
+    float: left;
+    font-size: 6px;
+    font-weight: bold;
+    line-height: 10px;
+    height: 12px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 12px;
+    box-sizing: border-box;
+  }
+  .game-info {
+    margin-left: -75%;
+    margin-top: 180%;
+  }
 }
