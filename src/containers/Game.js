@@ -73,7 +73,7 @@ class Game extends Component {
             <div className="container">
                 <div className="game">
                     <div className="game-board">
-                        <h1>TIC-TAC-TOEY!</h1>
+                        <h1>TIC-TAC-TOES</h1>
                         <Board
                             squares={current.squares}
                             onClick={(i) => this.handleClick(i)}
